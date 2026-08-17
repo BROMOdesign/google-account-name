@@ -1,362 +1,747 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Googleの表示名を変更する方法 | かんたんガイド</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F6F1E6;
-    --paper-deep:#EEE6D3;
-    --ink:#1E2A38;
-    --ink-soft:#4A5568;
-    --seal:#B23A2E;
-    --seal-deep:#8E2C22;
-    --gold:#C79A3D;
-    --sage:#5F8368;
-    --line: rgba(30,42,56,0.14);
-    --card: #FFFDF8;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:
-      radial-gradient(1200px 600px at 90% -10%, rgba(199,154,61,0.10), transparent 60%),
-      var(--paper);
-    color:var(--ink);
-    font-family:'Zen Kaku Gothic New', sans-serif;
-    line-height:1.8;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  .mincho{ font-family:'Shippori Mincho', serif; }
-  .wrap{ max-width:640px; margin:0 auto; padding:0 22px; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Googleの表示名を変更する方法 | かんたんガイド</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f6f1e6;
+        --paper-deep: #eee6d3;
+        --ink: #1e2a38;
+        --ink-soft: #4a5568;
+        --seal: #b23a2e;
+        --seal-deep: #8e2c22;
+        --gold: #c79a3d;
+        --sage: #5f8368;
+        --line: rgba(30, 42, 56, 0.14);
+        --card: #fffdf8;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background:
+          radial-gradient(
+            1200px 600px at 90% -10%,
+            rgba(199, 154, 61, 0.1),
+            transparent 60%
+          ),
+          var(--paper);
+        color: var(--ink);
+        font-family: "Zen Kaku Gothic New", sans-serif;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      .mincho {
+        font-family: "Shippori Mincho", serif;
+      }
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 22px;
+      }
 
-  /* ---------- texture ---------- */
-  .paper-texture{
-    position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.5;
-    background-image:
-      repeating-linear-gradient(0deg, rgba(30,42,56,0.015) 0px, rgba(30,42,56,0.015) 1px, transparent 1px, transparent 3px);
-  }
+      /* ---------- texture ---------- */
+      .paper-texture {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(30, 42, 56, 0.015) 0px,
+          rgba(30, 42, 56, 0.015) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      }
 
-  /* ---------- FV (first view) ---------- */
-  header.fv{
-    position:relative; z-index:1;
-    min-height:46vh;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center;
-    padding:80px 0 56px;
-    border-bottom:1px solid var(--line);
-  }
-  header.fv::before{
-    content:"";
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:280px; height:280px; border-radius:50%;
-    background:radial-gradient(circle, rgba(178,58,46,0.07), transparent 70%);
-    z-index:-1;
-  }
-  header.fv .eyebrow{ margin-bottom:22px; }
-  header.fv h1{
-    font-size:clamp(30px, 8vw, 44px);
-    font-weight:700; letter-spacing:0.04em;
-    line-height:1.6;
-    color:var(--ink);
-  }
+      /* ---------- FV (first view) ---------- */
+      header.fv {
+        position: relative;
+        z-index: 1;
+        min-height: 46vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 0 56px;
+        border-bottom: 1px solid var(--line);
+      }
+      header.fv::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(178, 58, 46, 0.07),
+          transparent 70%
+        );
+        z-index: -1;
+      }
+      header.fv .eyebrow {
+        margin-bottom: 22px;
+      }
+      header.fv h1 {
+        font-size: clamp(30px, 8vw, 44px);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1.6;
+        color: var(--ink);
+      }
 
-  /* ---------- header / hero ---------- */
-  header.hero{
-    position:relative; z-index:1;
-    padding:64px 0 48px;
-    border-bottom:1px solid var(--line);
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:12.5px; letter-spacing:0.14em; font-weight:700;
-    color:var(--seal); background:rgba(178,58,46,0.08);
-    border:1px solid rgba(178,58,46,0.25);
-    padding:6px 14px; border-radius:999px; margin-bottom:22px;
-  }
-  .eyebrow::before{ content:"◆"; font-size:8px; }
-  h1{
-    font-size:clamp(30px, 7vw, 42px);
-    font-weight:800; letter-spacing:0.02em;
-    line-height:1.5;
-    margin-bottom:18px;
-  }
-  h1 .accent{ color:var(--seal); }
-  .lead{
-    font-size:15.5px; color:var(--ink-soft); max-width:46ch; margin-bottom:32px;
-  }
-  .cta-btn{
-    display:inline-flex; align-items:center; gap:10px;
-    background:var(--ink); color:var(--paper);
-    font-weight:700; font-size:15px;
-    padding:16px 26px; border-radius:10px;
-    text-decoration:none; border:none; cursor:pointer;
-    box-shadow:0 6px 0 rgba(30,42,56,0.18);
-    transition:transform .15s ease;
-  }
-  .cta-btn:active{ transform:translateY(4px); box-shadow:0 2px 0 rgba(30,42,56,0.18); }
-  .cta-time{ font-size:12.5px; color:var(--ink-soft); margin-top:12px; }
+      /* ---------- header / hero ---------- */
+      header.hero {
+        position: relative;
+        z-index: 1;
+        padding: 64px 0 48px;
+        border-bottom: 1px solid var(--line);
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12.5px;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+        color: var(--seal);
+        background: rgba(178, 58, 46, 0.08);
+        border: 1px solid rgba(178, 58, 46, 0.25);
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 22px;
+      }
+      .eyebrow::before {
+        content: "◆";
+        font-size: 8px;
+      }
+      h1 {
+        font-size: clamp(30px, 7vw, 42px);
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
+      h1 .accent {
+        color: var(--seal);
+      }
+      .lead {
+        font-size: 15.5px;
+        color: var(--ink-soft);
+        max-width: 46ch;
+        margin-bottom: 32px;
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--ink);
+        color: var(--paper);
+        font-weight: 700;
+        font-size: 15px;
+        padding: 16px 26px;
+        border-radius: 10px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 6px 0 rgba(30, 42, 56, 0.18);
+        transition: transform 0.15s ease;
+      }
+      .cta-btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 rgba(30, 42, 56, 0.18);
+      }
+      .cta-time {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        margin-top: 12px;
+      }
 
-  /* ---------- why section ---------- */
-  section.why{ position:relative; z-index:1; padding:52px 0 12px; }
-  .section-title{
-    font-size:13px; font-weight:700; letter-spacing:0.14em; color:var(--ink-soft);
-    text-transform:uppercase; margin-bottom:6px;
-  }
-  .section-heading{
-    font-size:24px; font-weight:800; margin-bottom:30px;
-  }
-  .reason-list{ display:flex; flex-direction:column; gap:16px; }
-  .reason{
-    display:flex; gap:16px; align-items:flex-start;
-    background:var(--card); border:1px solid var(--line);
-    border-radius:14px; padding:18px 18px;
-  }
-  .reason-icon{
-    flex:0 0 auto; width:38px; height:38px; border-radius:10px;
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(95,131,104,0.12); color:var(--sage);
-  }
-  .reason h3{ font-size:15px; font-weight:700; margin-bottom:4px; }
-  .reason p{ font-size:13.5px; color:var(--ink-soft); }
+      /* ---------- why section ---------- */
+      section.why {
+        position: relative;
+        z-index: 1;
+        padding: 52px 0 12px;
+      }
+      .section-title {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .section-heading {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 30px;
+      }
+      .reason-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .reason {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px 18px;
+      }
+      .reason-icon {
+        flex: 0 0 auto;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(95, 131, 104, 0.12);
+        color: var(--sage);
+      }
+      .reason h3 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .reason p {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
 
-  /* ---------- steps ---------- */
-  section.steps{ position:relative; z-index:1; padding:60px 0 20px; }
-  section.steps.steps-top{ padding-top:64px; }
-  .step{
-    display:grid; grid-template-columns:88px 1fr; gap:20px;
-    padding:26px 0; border-top:1px solid var(--line);
-    opacity:0; transform:translateY(16px);
-    transition:opacity .55s ease, transform .55s ease;
-  }
-  .step.in{ opacity:1; transform:translateY(0); }
-  .step:last-of-type{ border-bottom:1px solid var(--line); }
-  .step-num-wrap{ display:flex; flex-direction:column; align-items:center; gap:10px; }
-  .step-num{
-    width:40px; height:40px; border-radius:50%;
-    background:var(--ink); color:var(--paper);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Shippori Mincho', serif; font-weight:700; font-size:16px;
-  }
-  .phone-mock{
-    width:64px; height:96px; border-radius:10px;
-    background:var(--card); border:1.5px solid var(--line);
-    box-shadow: inset 0 0 0 3px var(--paper);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--ink-soft);
-  }
-  .step h3{ font-size:16.5px; font-weight:700; margin-bottom:6px; }
-  .step p{ font-size:14px; color:var(--ink-soft); }
-  .step .tag{
-    display:inline-block; margin-top:10px; font-size:12px; font-weight:700;
-    color:var(--seal); background:rgba(178,58,46,0.08);
-    padding:3px 10px; border-radius:999px;
-  }
+      /* ---------- steps ---------- */
+      section.steps {
+        position: relative;
+        z-index: 1;
+        padding: 60px 0 20px;
+      }
+      section.steps.steps-top {
+        padding-top: 64px;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 88px 1fr;
+        gap: 20px;
+        padding: 26px 0;
+        border-top: 1px solid var(--line);
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .step.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .step:last-of-type {
+        border-bottom: 1px solid var(--line);
+      }
+      .step-num-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .step-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Shippori Mincho", serif;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .phone-mock {
+        width: 64px;
+        height: 96px;
+        border-radius: 10px;
+        background: var(--card);
+        border: 1.5px solid var(--line);
+        box-shadow: inset 0 0 0 3px var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-soft);
+      }
+      .step h3 {
+        font-size: 16.5px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .step p {
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+      .step .tag {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--seal);
+        background: rgba(178, 58, 46, 0.08);
+        padding: 3px 10px;
+        border-radius: 999px;
+      }
 
-  /* ---------- note box ---------- */
-  .note-box{
-    position:relative; z-index:1; margin:36px 0 0;
-    background:var(--paper-deep); border:1px dashed rgba(30,42,56,0.3);
-    border-radius:14px; padding:20px 20px;
-  }
-  .note-box h4{ font-size:14px; font-weight:800; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
-  .note-box ul{ list-style:none; display:flex; flex-direction:column; gap:6px; }
-  .note-box li{ font-size:13px; color:var(--ink-soft); padding-left:16px; position:relative; }
-  .note-box li::before{ content:"・"; position:absolute; left:0; }
+      /* ---------- note box ---------- */
+      .note-box {
+        position: relative;
+        z-index: 1;
+        margin: 36px 0 0;
+        background: var(--paper-deep);
+        border: 1px dashed rgba(30, 42, 56, 0.3);
+        border-radius: 14px;
+        padding: 20px 20px;
+      }
+      .note-box h4 {
+        font-size: 14px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .note-box ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .note-box li {
+        font-size: 13px;
+        color: var(--ink-soft);
+        padding-left: 16px;
+        position: relative;
+      }
+      .note-box li::before {
+        content: "・";
+        position: absolute;
+        left: 0;
+      }
 
-  /* ---------- nickname alt ---------- */
-  .alt-box{
-    position:relative; z-index:1; margin:22px 0 0;
-    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px;
-  }
-  .alt-box h4{ font-size:14.5px; font-weight:800; margin-bottom:6px; }
-  .alt-box p{ font-size:13.5px; color:var(--ink-soft); }
+      /* ---------- nickname alt ---------- */
+      .alt-box {
+        position: relative;
+        z-index: 1;
+        margin: 22px 0 0;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px;
+      }
+      .alt-box h4 {
+        font-size: 14.5px;
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+      .alt-box p {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
 
-  /* ---------- final CTA / seal ---------- */
-  section.finale{
-    position:relative; z-index:1; padding:76px 0 40px; text-align:center;
-  }
-  .seal{
-    width:120px; height:120px; margin:0 auto 26px; border-radius:50%;
-    border:3px solid var(--seal); color:var(--seal);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Shippori Mincho', serif; font-weight:800; font-size:15px;
-    letter-spacing:0.1em; line-height:1.4;
-    transform:scale(0.6) rotate(-14deg); opacity:0;
-    transition:transform .5s cubic-bezier(.2,1.4,.4,1), opacity .5s ease;
-  }
-  .seal.in{ transform:scale(1) rotate(-8deg); opacity:1; }
-  .finale h2{ font-size:23px; font-weight:800; margin-bottom:12px; }
-  .finale p.lead2{ font-size:14.5px; color:var(--ink-soft); max-width:40ch; margin:0 auto 28px; }
-  .review-btn{
-    display:inline-flex; align-items:center; gap:10px;
-    background:var(--seal); color:#fff; font-weight:700; font-size:15.5px;
-    padding:17px 30px; border-radius:10px; text-decoration:none;
-    box-shadow:0 6px 0 var(--seal-deep);
-    transition:transform .15s ease;
-  }
-  .review-btn:active{ transform:translateY(4px); box-shadow:0 2px 0 var(--seal-deep); }
-  .stars{ letter-spacing:2px; color:var(--gold); font-size:18px; margin-bottom:14px; }
+      /* ---------- final CTA / seal ---------- */
+      section.finale {
+        position: relative;
+        z-index: 1;
+        padding: 76px 0 40px;
+        text-align: center;
+      }
+      .seal {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 26px;
+        border-radius: 50%;
+        border: 3px solid var(--seal);
+        color: var(--seal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Shippori Mincho", serif;
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        line-height: 1.4;
+        transform: scale(0.6) rotate(-14deg);
+        opacity: 0;
+        transition:
+          transform 0.5s cubic-bezier(0.2, 1.4, 0.4, 1),
+          opacity 0.5s ease;
+      }
+      .seal.in {
+        transform: scale(1) rotate(-8deg);
+        opacity: 1;
+      }
+      .finale h2 {
+        font-size: 23px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .finale p.lead2 {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        max-width: 40ch;
+        margin: 0 auto 28px;
+      }
+      .review-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--seal);
+        color: #fff;
+        font-weight: 700;
+        font-size: 15.5px;
+        padding: 17px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0 6px 0 var(--seal-deep);
+        transition: transform 0.15s ease;
+      }
+      .review-btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 var(--seal-deep);
+      }
+      .stars {
+        letter-spacing: 2px;
+        color: var(--gold);
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
 
-  footer{
-    position:relative; z-index:1; padding:30px 0 50px; text-align:center;
-    font-size:12px; color:var(--ink-soft); border-top:1px solid var(--line);
-  }
-  footer .edit-note{
-    display:block; margin-top:8px; font-size:11px; color:rgba(74,85,104,0.7);
-  }
+      footer {
+        position: relative;
+        z-index: 1;
+        padding: 30px 0 50px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--ink-soft);
+        border-top: 1px solid var(--line);
+      }
+      footer .edit-note {
+        display: block;
+        margin-top: 8px;
+        font-size: 11px;
+        color: rgba(74, 85, 104, 0.7);
+      }
 
-  @media (max-width:420px){
-    .step{ grid-template-columns:64px 1fr; gap:14px; }
-    .phone-mock{ width:52px; height:80px; }
-  }
-</style>
-</head>
-<body>
-<div class="paper-texture"></div>
+      @media (max-width: 420px) {
+        .step {
+          grid-template-columns: 64px 1fr;
+          gap: 14px;
+        }
+        .phone-mock {
+          width: 52px;
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="paper-texture"></div>
 
-<div class="wrap">
+    <div class="wrap">
+      <header class="fv">
+        <span class="eyebrow">口コミ投稿 準備ガイド</span>
+        <h1 class="mincho">Googleアカウント<br />名前変更マニュアル</h1>
+      </header>
 
-  <header class="fv">
-    <span class="eyebrow">口コミ投稿 準備ガイド</span>
-    <h1 class="mincho">Googleアカウント<br>名前変更マニュアル</h1>
-  </header>
+      <section class="steps steps-top" id="steps">
+        <p class="section-title">How to</p>
+        <h2 class="section-heading">表示名の変更方法（6ステップ）</h2>
 
-  <section class="steps steps-top" id="steps">
-    <p class="section-title">How to</p>
-    <h2 class="section-heading">表示名の変更方法（6ステップ）</h2>
-
-    <div class="step">
-      <div class="step-num-wrap">
-        <div class="step-num">1</div>
-        <div class="phone-mock">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div class="step">
+          <div class="step-num-wrap">
+            <div class="step-num">1</div>
+            <div class="phone-mock">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <circle
+                  cx="12"
+                  cy="8"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>画面右上のアイコンをタップ</h3>
+            <p>
+              Gmail・YouTubeなど、Googleのどのサービスの画面からでもかまいません。右上に表示されているプロフィールアイコンをタップします。
+            </p>
+            <img
+              src="/google-account-name/images/icon.png"
+              width="800"
+              height="600"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>画面右上のアイコンをタップ</h3>
-        <p>Gmail・YouTubeなど、Googleのどのサービスの画面からでもかまいません。右上に表示されているプロフィールアイコンをタップします。</p>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-num-wrap">
-        <div class="step-num">2</div>
-        <div class="phone-mock">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div class="step">
+          <div class="step-num-wrap">
+            <div class="step-num">2</div>
+            <div class="phone-mock">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="4"
+                  y="4"
+                  width="16"
+                  height="16"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M8 9h8M8 13h5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>「Googleアカウントを管理」をタップ</h3>
+            <p>
+              表示されたメニューから「Googleアカウントを管理」を選び、アカウントの設定画面へ進みます。
+            </p>
+            <img
+              src="/google-account-name/images/manage.png"
+              width="800"
+              height="600"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>「Googleアカウントを管理」をタップ</h3>
-        <p>表示されたメニューから「Googleアカウントを管理」を選び、アカウントの設定画面へ進みます。</p>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-num-wrap">
-        <div class="step-num">3</div>
-        <div class="phone-mock">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="1.6" fill="currentColor"/><path d="M13 9.5h4M13 12h4M6 15.5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div class="step">
+          <div class="step-num-wrap">
+            <div class="step-num">3</div>
+            <div class="phone-mock">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="4"
+                  y="5"
+                  width="16"
+                  height="14"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <circle cx="9" cy="10" r="1.6" fill="currentColor" />
+                <path
+                  d="M13 9.5h4M13 12h4M6 15.5h12"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>メニューから「個人情報」を選択</h3>
+            <p>
+              左側または上部のメニュー一覧から「個人情報」をタップし、個人情報の画面に切り替えます。
+            </p>
+            <img
+              src="/google-account-name/images/profile.png"
+              width="800"
+              height="600"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>メニューから「個人情報」を選択</h3>
-        <p>左側または上部のメニュー一覧から「個人情報」をタップし、個人情報の画面に切り替えます。</p>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-num-wrap">
-        <div class="step-num">4</div>
-        <div class="phone-mock">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="7" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 9V7a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div class="step">
+          <div class="step-num-wrap">
+            <div class="step-num">4</div>
+            <div class="phone-mock">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="4"
+                  y="9"
+                  width="16"
+                  height="7"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M7 9V7a2 2 0 012-2h6a2 2 0 012 2v2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>「名前」の欄をタップ</h3>
+            <p>
+              基本情報の中にある「名前」の項目をタップします。現在登録されている姓名が表示されます。
+            </p>
+            <img
+              src="/google-account-name/images/name_column.png"
+              width="800"
+              height="600"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>「名前」の欄をタップ</h3>
-        <p>基本情報の中にある「名前」の項目をタップします。現在登録されている姓名が表示されます。</p>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-num-wrap">
-        <div class="step-num">5</div>
-        <div class="phone-mock">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-4L16 5l3 3L9 18l-4 1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="step">
+          <div class="step-num-wrap">
+            <div class="step-num">5</div>
+            <div class="phone-mock">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 19l1-4L16 5l3 3L9 18l-4 1z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>鉛筆マークをタップして編集</h3>
+            <p>
+              名前の右側にある鉛筆アイコンをタップすると、姓・名を入力できる編集画面が開きます。ご希望の表示名を入力してください。
+            </p>
+            <img
+              src="/google-account-name/images/name_edit.png"
+              width="800"
+              height="600"
+            />
+            <span class="tag">ニックネームだけの変更も可能</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>鉛筆マークをタップして編集</h3>
-        <p>名前の右側にある鉛筆アイコンをタップすると、姓・名を入力できる編集画面が開きます。ご希望の表示名を入力してください。</p>
-        <span class="tag">ニックネームだけの変更も可能</span>
-      </div>
-    </div>
 
-    <div class="step">
-      <div class="step-num-wrap">
-        <div class="step-num">6</div>
-        <div class="phone-mock">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="step">
+          <div class="step-num-wrap">
+            <div class="step-num">6</div>
+            <div class="phone-mock">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 13l4 4L19 7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>「保存」をタップして完了</h3>
+            <p>
+              入力した内容を確認し、「保存」（または「完了」）をタップすれば変更完了です。画面に新しい名前が反映されます。
+            </p>
+            <img
+              src="/google-account-name/images/save.png"
+              width="800"
+              height="600"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <h3>「保存」をタップして完了</h3>
-        <p>入力した内容を確認し、「保存」（または「完了」）をタップすれば変更完了です。画面に新しい名前が反映されます。</p>
-      </div>
+
+        <div class="note-box">
+          <h4>⚠ 設定前に知っておきたいこと</h4>
+          <ul>
+            <li>
+              短時間での変更には回数制限があります（目安：1分間に3回まで／作成から2週間未満のアカウントは対象外）。
+            </li>
+            <li>
+              名前を完全に非公開にすることはできません。Gmailの宛先表示やYouTubeのコメントなど、他のサービスにも反映されます。
+            </li>
+            <li>
+              変更後に反映されない場合は、「保存」または「完了」を押し忘れていないかご確認ください。
+            </li>
+          </ul>
+        </div>
+
+        <div class="alt-box">
+          <h4>もっと手軽に済ませたい場合：ニックネームだけ設定する</h4>
+          <p>
+            姓名そのものを変えたくない場合は、「個人情報」画面の「ニックネーム」欄から、表示名だけを別途設定することもできます。口コミ投稿時にはニックネームが優先的に表示されます。
+          </p>
+        </div>
+      </section>
+
+      <section class="finale" id="finale">
+        <div class="seal">設定<br />完了</div>
+        <div class="stars">★★★★★</div>
+        <h2>設定、お疲れさまでした。</h2>
+        <p class="lead2">
+          表示名の準備が整ったら、ぜひ率直なご感想を口コミでお聞かせください。
+        </p>
+        <a href="#" class="review-btn">口コミを投稿する</a>
+      </section>
+
+      <footer>
+        このガイドはお客様の口コミ投稿をサポートするために作成しています。
+        <span class="edit-note"
+          >※「口コミを投稿する」ボタンのリンク先は、実際のGoogle口コミ投稿用URLに差し替えてご利用ください。Googleアカウントの画面構成は変更される場合があります。</span
+        >
+      </footer>
     </div>
 
-    <div class="note-box">
-      <h4>⚠ 設定前に知っておきたいこと</h4>
-      <ul>
-        <li>短時間での変更には回数制限があります（目安：1分間に3回まで／作成から2週間未満のアカウントは対象外）。</li>
-        <li>名前を完全に非公開にすることはできません。Gmailの宛先表示やYouTubeのコメントなど、他のサービスにも反映されます。</li>
-        <li>変更後に反映されない場合は、「保存」または「完了」を押し忘れていないかご確認ください。</li>
-      </ul>
-    </div>
+    <script>
+      const steps = document.querySelectorAll(".step");
+      const seal = document.querySelector(".seal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+      steps.forEach((s) => io.observe(s));
 
-    <div class="alt-box">
-      <h4>もっと手軽に済ませたい場合：ニックネームだけ設定する</h4>
-      <p>姓名そのものを変えたくない場合は、「個人情報」画面の「ニックネーム」欄から、表示名だけを別途設定することもできます。口コミ投稿時にはニックネームが優先的に表示されます。</p>
-    </div>
-  </section>
-
-  <section class="finale" id="finale">
-    <div class="seal">設定<br>完了</div>
-    <div class="stars">★★★★★</div>
-    <h2>設定、お疲れさまでした。</h2>
-    <p class="lead2">表示名の準備が整ったら、ぜひ率直なご感想を口コミでお聞かせください。</p>
-    <a href="#" class="review-btn">口コミを投稿する</a>
-  </section>
-
-  <footer>
-    このガイドはお客様の口コミ投稿をサポートするために作成しています。
-    <span class="edit-note">※「口コミを投稿する」ボタンのリンク先は、実際のGoogle口コミ投稿用URLに差し替えてご利用ください。Googleアカウントの画面構成は変更される場合があります。</span>
-  </footer>
-
-</div>
-
-<script>
-  const steps = document.querySelectorAll('.step');
-  const seal = document.querySelector('.seal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.2 });
-  steps.forEach(s => io.observe(s));
-
-  const io2 = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ seal.classList.add('in'); io2.unobserve(e.target); }
-    });
-  }, { threshold: 0.5 });
-  io2.observe(document.getElementById('finale'));
-</script>
-
-</body>
+      const io2 = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              seal.classList.add("in");
+              io2.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      io2.observe(document.getElementById("finale"));
+    </script>
+  </body>
 </html>
