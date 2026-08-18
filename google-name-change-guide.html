@@ -51,7 +51,7 @@
       .wrap {
         max-width: 640px;
         margin: 0 auto;
-        padding: 0 22px;
+        padding: 0 10px;
       }
 
       /* ---------- texture ---------- */
@@ -450,11 +450,6 @@
         color: rgba(74, 85, 104, 0.7);
       }
 
-      img {
-        border-radius: 15px;
-        border: 3px solid #635c5f;
-      }
-
       @media (max-width: 420px) {
         .step {
           grid-template-columns: 64px 1fr;
@@ -464,6 +459,17 @@
           width: 52px;
           height: 80px;
         }
+      }
+
+      /* ---------- 久保が追加しているcss ---------- */
+      img {
+        border-radius: 15px;
+        border: 3px solid #635c5f;
+      }
+
+      .step_one {
+        display: flex; /* 中身を横並びにする */
+        gap: 5px; /* 画像とテキストの間にスペースを作る */
       }
     </style>
   </head>
@@ -501,16 +507,18 @@
               </svg>
             </div>
           </div>
-          <div class="step_one">
+          <div>
             <h3>画面右上のアイコンをタップ</h3>
-            <p>
-              Gmail・YouTubeなど、Googleのどのサービスの画面からでもかまいません。右上に表示されているプロフィールアイコンをタップします。
-            </p>
-            <img
-              src="/google-account-name/images/icon.png"
-              width="450"
-              height="210"
-            />
+            <div class="step_one">
+              <p>
+                Gmail・YouTubeなど、Googleのどのサービスの画面からでもかまいません。右上に表示されているプロフィールアイコンをタップします。
+              </p>
+              <img
+                src="/google-account-name/images/icon.png"
+                width="450"
+                height="210"
+              />
+            </div>
           </div>
         </div>
 
