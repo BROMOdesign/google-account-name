@@ -49,7 +49,7 @@
         font-family: "Shippori Mincho", serif;
       }
       .wrap {
-        max-width: 700px;
+        max-width: 960px;
         margin: 0 auto;
         padding: 0 10px;
       }
@@ -471,6 +471,17 @@
         display: flex; /* 中身を横並びにする */
         gap: 15px; /* 画像とテキストの間にスペースを作る */
       }
+
+      .step__item-text {
+        width: 100%;
+        margin-top: 24px;
+      }
+
+      .step__item-image {
+        max-width: 480px; /* 画像の最大幅を設定 */
+        width: 100%; /* 画像の幅を親要素に合わせる */
+        height: auto; /* 画像の縦横比を維持する */
+      }
     </style>
   </head>
   <body>
@@ -510,10 +521,11 @@
           <div>
             <h3>画面右上のアイコンをタップ</h3>
             <div class="step_item">
-              <p>
+              <p class="step__item-text">
                 Gmail・YouTubeなど、Googleのどのサービスの画面からでもかまいません。右上に表示されているプロフィールアイコンをタップします。
               </p>
               <img
+                class="step__item-image"
                 src="/google-account-name/images/icon.png"
                 width="450"
                 height="210"
