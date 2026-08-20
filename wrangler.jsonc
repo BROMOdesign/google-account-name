@@ -1,0 +1,12 @@
+{
+  "name": "google-account-name-guide",
+  "compatibility_date": "2026-08-20",
+  // tools/build.mjs が生成する dist/ をそのまま静的配信する。
+  // Worker のコード（main）は無し = 純粋な静的サイト。
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash"
+  },
+  // 個別レコードなので、*.corp-bromo.com のワイルドカード（エックスサーバー行き）より優先される。
+  "routes": [{ "pattern": "guide.corp-bromo.com", "custom_domain": true }]
+}
