@@ -242,13 +242,13 @@ section.steps.steps-top {
 .step:last-of-type {
   border-bottom: 1px solid var(--line);
 }
-.step-num-wrap {
+.step__num-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
-.step-num {
+.step__num {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -273,16 +273,12 @@ section.steps.steps-top {
   justify-content: center;
   color: var(--ink-soft);
 }
-.step h3 {
+.step__item-title {
   font-size: 16.5px;
   font-weight: 700;
   margin-bottom: 6px;
 }
-.step p {
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-.step .tag {
+.step__item-tag {
   display: inline-block;
   margin-top: 10px;
   font-size: 12px;
@@ -450,14 +446,25 @@ img {
   border: 3px solid #635c5f;
 }
 
-.step_item {
+.step__item {
+  min-width: 0; /* グリッド内で中身がはみ出さないようにする */
+}
+
+.step__item-contents {
   display: flex; /* 中身を横並びにする */
   gap: 15px; /* 画像とテキストの間にスペースを作る */
+}
+
+/* テキストと補足タグをまとめる箱（手順5で使用） */
+.step__item-textarea {
+  width: 100%;
 }
 
 .step__item-text {
   width: 100%;
   margin-top: 24px;
+  font-size: 14px;
+  color: var(--ink-soft);
 }
 
 .step__item-image {

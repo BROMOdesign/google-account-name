@@ -28,8 +28,8 @@
         <h2 class="section-heading">表示名の変更方法（6ステップ）</h2>
 
         <div class="step">
-          <div class="step-num-wrap">
-            <div class="step-num">1</div>
+          <div class="step__num-wrap">
+            <div class="step__num">1</div>
             <div class="phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <circle
@@ -48,9 +48,9 @@
               </svg>
             </div>
           </div>
-          <div>
-            <h3>画面右上のアイコンをタップ</h3>
-            <div class="step_item">
+          <div class="step__item">
+            <h3 class="step__item-title">画面右上のアイコンをタップ</h3>
+            <div class="step__item-contents">
               <p class="step__item-text">
                 Gmail・YouTubeなど、Googleのどのサービスの画面からでもかまいません。右上に表示されているプロフィールアイコンをタップします。
               </p>
@@ -65,8 +65,8 @@
         </div>
 
         <div class="step">
-          <div class="step-num-wrap">
-            <div class="step-num">2</div>
+          <div class="step__num-wrap">
+            <div class="step__num">2</div>
             <div class="phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <rect
@@ -87,13 +87,14 @@
               </svg>
             </div>
           </div>
-          <div>
-            <h3>「Googleアカウントを管理」をタップ</h3>
-            <div class="step_item">
-              <p>
+          <div class="step__item">
+            <h3 class="step__item-title">「Googleアカウントを管理」をタップ</h3>
+            <div class="step__item-contents">
+              <p class="step__item-text">
                 表示されたメニューから「Googleアカウントを管理」を選び、アカウントの設定画面へ進みます。
               </p>
               <img
+                class="step__item-image"
                 src="images/manage.png"
                 width="450"
                 height="210"
@@ -103,8 +104,8 @@
         </div>
 
         <div class="step">
-          <div class="step-num-wrap">
-            <div class="step-num">3</div>
+          <div class="step__num-wrap">
+            <div class="step__num">3</div>
             <div class="phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <rect
@@ -126,13 +127,14 @@
               </svg>
             </div>
           </div>
-          <div>
-            <h3>メニューから「個人情報」を選択</h3>
-            <div class="step_item">
-              <p>
+          <div class="step__item">
+            <h3 class="step__item-title">メニューから「個人情報」を選択</h3>
+            <div class="step__item-contents">
+              <p class="step__item-text">
                 左側または上部のメニュー一覧から「個人情報」をタップし、個人情報の画面に切り替えます。
               </p>
               <img
+                class="step__item-image"
                 src="images/profile.png"
                 width="450"
                 height="210"
@@ -142,8 +144,8 @@
         </div>
 
         <div class="step">
-          <div class="step-num-wrap">
-            <div class="step-num">4</div>
+          <div class="step__num-wrap">
+            <div class="step__num">4</div>
             <div class="phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <rect
@@ -163,13 +165,14 @@
               </svg>
             </div>
           </div>
-          <div>
-            <h3>「名前」の欄をタップ</h3>
-            <div class="step_item">
-              <p>
+          <div class="step__item">
+            <h3 class="step__item-title">「名前」の欄をタップ</h3>
+            <div class="step__item-contents">
+              <p class="step__item-text">
                 基本情報の中にある「名前」の項目をタップします。現在登録されている姓名が表示されます。
               </p>
               <img
+                class="step__item-image"
                 src="images/name_column.png"
                 width="450"
                 height="210"
@@ -179,8 +182,8 @@
         </div>
 
         <div class="step">
-          <div class="step-num-wrap">
-            <div class="step-num">5</div>
+          <div class="step__num-wrap">
+            <div class="step__num">5</div>
             <div class="phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <path
@@ -192,16 +195,17 @@
               </svg>
             </div>
           </div>
-          <div>
-            <h3>「>」マークをタップして編集</h3>
-            <div class="step_item">
+          <div class="step__item">
+            <h3 class="step__item-title">「>」マークをタップして編集</h3>
+            <div class="step__item-contents">
               <div class="step__item-textarea">
-                <p>
+                <p class="step__item-text">
                   名前の右側にある「>」マークをタップすると、姓・名を入力できる編集画面が開きます。ご希望の表示名を入力してください。
                 </p>
-                <span class="tag">ニックネームだけの変更も可能</span>
+                <span class="step__item-tag">ニックネームだけの変更も可能</span>
               </div>
               <img
+                class="step__item-image"
                 src="images/name_edit.png"
                 width="450"
                 height="210"
@@ -211,8 +215,8 @@
         </div>
 
         <div class="step">
-          <div class="step-num-wrap">
-            <div class="step-num">6</div>
+          <div class="step__num-wrap">
+            <div class="step__num">6</div>
             <div class="phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <path
@@ -225,13 +229,14 @@
               </svg>
             </div>
           </div>
-          <div>
-            <h3>「保存」をタップして完了</h3>
-            <div class="step_item">
-              <p>
+          <div class="step__item">
+            <h3 class="step__item-title">「保存」をタップして完了</h3>
+            <div class="step__item-contents">
+              <p class="step__item-text">
                 入力した内容を確認し、「保存」（または「完了」）をタップすれば変更完了です。画面に新しい名前が反映されます。
               </p>
               <img
+                class="step__item-image"
                 src="images/save.png"
                 width="450"
                 height="210"
