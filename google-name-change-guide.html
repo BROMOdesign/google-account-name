@@ -19,18 +19,18 @@
 
     <div class="wrap">
       <header class="fv">
-        <span class="eyebrow">口コミ投稿 準備ガイド</span>
-        <h1 class="mincho">Googleアカウント<br />名前変更マニュアル</h1>
+        <span class="eyebrow fv__eyebrow">口コミ投稿 準備ガイド</span>
+        <h1 class="mincho fv__title">Googleアカウント<br />名前変更マニュアル</h1>
       </header>
 
-      <section class="steps steps-top" id="steps">
+      <section class="steps steps--top" id="steps">
         <p class="section-title">How to</p>
         <h2 class="section-heading">表示名の変更方法（6ステップ）</h2>
 
         <div class="step">
           <div class="step__num-wrap">
             <div class="step__num">1</div>
-            <div class="phone-mock">
+            <div class="step__phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <circle
                   cx="12"
@@ -68,7 +68,7 @@
         <div class="step">
           <div class="step__num-wrap">
             <div class="step__num">2</div>
-            <div class="phone-mock">
+            <div class="step__phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <rect
                   x="4"
@@ -108,7 +108,7 @@
         <div class="step">
           <div class="step__num-wrap">
             <div class="step__num">3</div>
-            <div class="phone-mock">
+            <div class="step__phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <rect
                   x="4"
@@ -149,7 +149,7 @@
         <div class="step">
           <div class="step__num-wrap">
             <div class="step__num">4</div>
-            <div class="phone-mock">
+            <div class="step__phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <rect
                   x="4"
@@ -188,7 +188,7 @@
         <div class="step">
           <div class="step__num-wrap">
             <div class="step__num">5</div>
-            <div class="phone-mock">
+            <div class="step__phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M5 19l1-4L16 5l3 3L9 18l-4 1z"
@@ -222,7 +222,7 @@
         <div class="step">
           <div class="step__num-wrap">
             <div class="step__num">6</div>
-            <div class="phone-mock">
+            <div class="step__phone-mock">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M5 13l4 4L19 7"
@@ -252,41 +252,41 @@
         </div>
 
         <div class="note-box">
-          <h4>⚠ 設定前に知っておきたいこと</h4>
-          <ul>
-            <li>
+          <h4 class="note-box__title">⚠ 設定前に知っておきたいこと</h4>
+          <ul class="note-box__list">
+            <li class="note-box__item">
               短時間での変更には回数制限があります（目安：1分間に3回まで／作成から2週間未満のアカウントは対象外）。
             </li>
-            <li>
+            <li class="note-box__item">
               名前を完全に非公開にすることはできません。Gmailの宛先表示やYouTubeのコメントなど、他のサービスにも反映されます。
             </li>
-            <li>
+            <li class="note-box__item">
               変更後に反映されない場合は、「保存」または「完了」を押し忘れていないかご確認ください。
             </li>
           </ul>
         </div>
 
         <div class="alt-box">
-          <h4>もっと手軽に済ませたい場合：ニックネームだけ設定する</h4>
-          <p>
+          <h4 class="alt-box__title">もっと手軽に済ませたい場合：ニックネームだけ設定する</h4>
+          <p class="alt-box__text">
             姓名そのものを変えたくない場合は、「個人情報」画面の「ニックネーム」欄から、表示名だけを別途設定することもできます。口コミ投稿時にはニックネームが優先的に表示されます。
           </p>
         </div>
       </section>
 
       <section class="finale" id="finale">
-        <div class="seal">設定<br />完了</div>
-        <div class="stars">★★★★★</div>
-        <h2>設定、お疲れさまでした。</h2>
-        <!-- <p class="lead2">
+        <div class="finale__seal">設定<br />完了</div>
+        <div class="finale__stars">★★★★★</div>
+        <h2 class="finale__heading">設定、お疲れさまでした。</h2>
+        <!-- <p class="finale__lead">
           表示名の準備が整ったら、ぜひ率直なご感想を口コミでお聞かせください。
         </p>
-        <a href="#" class="review-btn">口コミを投稿する</a> -->
+        <a href="#" class="finale__review-btn">口コミを投稿する</a> -->
       </section>
 
       <footer>
         このガイドはお客様の口コミ投稿をサポートするために作成しています。
-        <!-- <span class="edit-note"
+        <!-- <span class="footer__edit-note"
           >※「口コミを投稿する」ボタンのリンク先は、実際のGoogle口コミ投稿用URLに差し替えてご利用ください。Googleアカウントの画面構成は変更される場合があります。</span
         > -->
       </footer>
@@ -294,12 +294,12 @@
 
     <script>
       const steps = document.querySelectorAll(".step");
-      const seal = document.querySelector(".seal");
+      const seal = document.querySelector(".finale__seal");
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
-              e.target.classList.add("in");
+              e.target.classList.add("step--in");
               io.unobserve(e.target);
             }
           });
@@ -312,7 +312,7 @@
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
-              seal.classList.add("in");
+              seal.classList.add("finale__seal--in");
               io2.unobserve(e.target);
             }
           });
